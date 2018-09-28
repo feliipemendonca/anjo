@@ -1,0 +1,79 @@
+
+#sel_grupos{
+	width: 220px;
+	padding-left: 20px;
+	padding-right: 15px;
+}
+
+input[readonly], textarea[readonly] {
+	background-color: #dbdbdb;
+	color: #6d6d7c;
+	font-style: italic;
+}
+
+#div_gp_inpt{
+	position: absolute;
+	width: 0px;
+	margin-top: 15px;
+}
+
+#div_gp_inpt *{
+	margin-bottom: 5px;
+	width: 220px;
+	height: 60px;
+	text-align: center;
+	padding: 17px 0px;
+	font-size: 13pt;
+}
+
+#div_iconsArquivo{
+	width: 450px;
+	position: absolute;
+	
+	-webkit-animation: anim_iconArquivo 0.8s ease-in;
+	-moz-animation: anim_iconArquivo 0.8s ease-in;
+	-o-animation: anim_iconArquivo 0.8s ease-in;
+	animation: anim_iconArquivo 0.8s ease-in;
+}
+
+.hidde_animation{
+	-webkit-animation: anim_iconArquivo 0.8s ease-in-out reverse !important;
+	-moz-animation: anim_iconArquivo 0.8s ease-in-out reverse !important;
+	-o-animation: anim_iconArquivo 0.8s ease-in-out reverse !important;
+	animation: anim_iconArquivo 0.8s ease-in-out reverse !important;
+}
+
+.img_icon{
+	width: auto !important;
+	height: 150px !important;
+	cursor: pointer;
+}
+
+#div_iconsArquivo img {
+	border: 3px solid black;
+	margin: 5px;
+	padding: 5px;
+}
+#div_sendFiles {
+	display: inline;
+}
+
+#div_sendFiles div{
+	/*display: inline;*/
+	position: relative;
+}
+
+#div_sendFiles input[type="button"]{
+	cursor: pointer;
+}
+
+#div_sendFiles .bt_removerArquivo{
+	color: #00BFCF;
+	border: none;
+	background: none;
+	font-size: 18pt;
+}
+
+#div_sendFiles input[type="file"]{
+	display: none;
+}
