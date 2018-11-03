@@ -319,7 +319,7 @@ $idtb_adm = $_SESSION['idtb_login'];
 	</div>
 
 	<script src="../js/popper.min.js"></script>
-	<script src="../js/jquery.js"></script>
+	<script src="../js/jquery.min.js"></script>
 	<script src="../js/bootstrap.js"></script>
 	<script type="text/javascript" src="../js/valCampos.js" ></script>
 	<script class="tmpScript" type="text/javascript" src="../js/valCampos_execute.js" ></script>

@@ -14,7 +14,6 @@ $pro = $mysqli->query("SELECT *FROM tb_dado_adm WHERE tb_login_idtb_login = '$id
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>ADM | Cursos</title>
 
-
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<link href="../css/sb-admin.css" rel="stylesheet">
 	<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -160,6 +159,28 @@ $pro = $mysqli->query("SELECT *FROM tb_dado_adm WHERE tb_login_idtb_login = '$id
 
 						}
 
+						if (isset($_POST['cadastra_requito'])) {
+							$sql = $mysqli->query("INSERT INTO tb_requisito(requisito, tb_curso_idtb_curso) VALUES('".$_POST['requisito']."', '".$_POST['id']."')");
+
+							if ($sql) {
+								echo "<div class='alert alert-success alert-dismissible' role='alert'>
+								<strong>Sucesso!</strong> Requisito cadastrado.
+								<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+								<span aria-hidden='true'>&times;</span>
+								</button>
+								</div>";
+
+							}else{
+								echo "<div class='alert alert-warning alert-dismissible' role='alert'>
+								<strong>Error!</strong> tente Novamente.
+								<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+								<span aria-hidden='true'>&times;</span>
+								</button>
+								</div>";
+							}
+
+						}
+
 						if (isset($_POST['update_curso'])) {
 
 							$foto = $_FILES["image"];
@@ -183,7 +204,7 @@ $pro = $mysqli->query("SELECT *FROM tb_dado_adm WHERE tb_login_idtb_login = '$id
 								$sql = $mysqli->query("UPDATE tb_curso SET curso = '".$_POST['curso']."', carga = '".$_POST['carga']."', valor = '".$_POST['valor']."', alvo = '".$_POST['alvo']."', mercado = '".$_POST['mercado']."', img = '$nome_imagem' WHERE idtb_curso = '".$_POST['id']."'") or die($mysqli->error);
 
 								if ($sql) {
-									echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+									echo "<div class='alert alert-success alert-dismissible' role='alert'>
 									<strong>Sucesso!</strong> Curso atualizado com Sucesso.
 									<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
 									<span aria-hidden='true'>&times;</span>
@@ -334,6 +355,109 @@ $pro = $mysqli->query("SELECT *FROM tb_dado_adm WHERE tb_login_idtb_login = '$id
 
 
 						}
+
+						if (isset($_POST['delete_requisito'])) {
+
+							$sql = $mysqli->query("DELETE FROM tb_requisito WHERE idtb_requisito = '".$_POST['idtb_requisito']."'") or die($mysqli->error);
+
+							if ($sql) {
+
+								echo "<div class='alert alert-success' role='alert'>
+								<strong>Sucesso!</strong> Requisito excluido com Sucesso.
+								<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+								<span aria-hidden='true'>&times;</span>
+								</button>
+								</div>";
+
+							}else{
+
+								echo "<div class='alert alert-danger' role='alert'>
+								<strong>Error!</strong> não foi possivel excluir o Requisito.
+								<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+								<span aria-hidden='true'>&times;</span>
+								</button>
+								</div>";
+
+							}
+
+
+						}
+
+						if (isset($_POST['img_curso'])) {
+
+							$foto = $_FILES["image"];
+
+							if (!empty($foto["name"])) {
+
+								$dimensoes = getimagesize($foto["tmp_name"]);
+
+								preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $foto["name"], $ext);
+
+								$nome_imagem = md5(uniqid(time())) . "." . $ext[1];
+
+								$caminho_imagem = "../upload/" . $nome_imagem;
+
+								move_uploaded_file($foto["tmp_name"], $caminho_imagem);
+
+								$s = $mysqli->query("INSERT INTO tb_galeria(img, tb_curso_idtb_curso) VALUES('$nome_imagem', '".$_POST['idtb_curso']."')") or die($mysqli->error);
+
+								if ($s) {
+									echo "<div class='alert alert-success alert-dismissible' role='alert'>
+									<strong>Sucesso!</strong> Imagem cadastrada com Sucesso.
+									<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+									<span aria-hidden='true'>&times;</span>
+									</button>
+									</div>";
+								}else{
+									echo "<div class='alert alert-warning alert-dismissible' role='alert'>
+									<strong>Error!</strong> Verefique os dados e tente Novamente.
+									<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+									<span aria-hidden='true'>&times;</span>
+									</button>
+									</div>";
+								}
+
+							}
+						}
+
+						if (isset($_POST['delete_img'])) {
+
+							$cry = sha1(md5($_POST['senha']));
+
+							$q = $mysqli->query("SELECT *FROM tb_login WHERE senha = '$cry' AND email = '".$_SESSION['email']."'") or die($mysqli->error);
+							$senha = $q->fetch_assoc()['senha'];
+							if ($senha == $cry) {
+								$sql = $mysqli->query("SELECT img FROM tb_galeria WHERE idtb_galeria = '".$_POST['idtb_galeria']."'");
+								$img = $sql->fetch_assoc()['img'];
+
+								if (!empty($img)) {
+
+									unlink("../upload/".$img."");
+
+									$sql = $mysqli->query("DELETE FROM tb_galeria WHERE idtb_galeria = '".$_POST['idtb_galeria']."'");
+
+									if ($sql) {
+										echo "<div class='alert alert-success alert-dismissible' role='alert'>
+										<strong>Sucesso!</strong> Imagem excluida com Sucesso.
+										<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+										<span aria-hidden='true'>&times;</span>
+										</button>
+										</div>";
+									}else{
+										echo "<div class='alert alert-warning alert-dismissible' role='alert'>
+										<strong>Error!</strong> Verefique os dados e tente Novamente.
+										<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+										<span aria-hidden='true'>&times;</span>
+										</button>
+										</div>";
+									}
+								}
+							}
+						}
+
+
+
+
 						?>
 					</div>
 
@@ -372,12 +496,14 @@ $pro = $mysqli->query("SELECT *FROM tb_dado_adm WHERE tb_login_idtb_login = '$id
 														<a href="" data-toggle="modal" data-target="<?php echo "#modulo_ver".$ln['idtb_curso']; ?>" title="Ver Módulo de Curso"><i class="fa fa-fw fa-eye"></i></a>
 														<a href="" data-toggle="modal" data-target="<?php echo "#update".$ln['idtb_curso']; ?>" title="Atualizar Curso"><i class="fa fa-fw fa-edit"></i></a>
 														<a href="" data-toggle="modal" data-target="#delete<?php echo $ln['idtb_curso']; ?>" title="Excluir"><i class="fa fa-fw fa-trash-o"></i></a>
+														<a href="" data-toggle="modal" data-target="#requisito<?php echo $ln['idtb_curso']; ?>" title="Requisitos"><i class="fas fa-chevron-down"></i></a>
+														<a href="" data-toggle="modal" data-target="<?php echo "#requisito_ver".$ln['idtb_curso']; ?>" title="Ver Requisitos do Curso"><i class="fa fa-fw fa-eye"></i></a>
+														<a href="" data-toggle="modal" data-target="<?php echo "#img".$ln['idtb_curso']; ?>" title="Ver Requisitos do Curso"><i class="fa fa-file"></i></a>
 													</td>
 												</tr>
 												<?php
 
 												include "../config/modal_adm_curso.php";
-
 
 											}
 										}
@@ -395,6 +521,10 @@ $pro = $mysqli->query("SELECT *FROM tb_dado_adm WHERE tb_login_idtb_login = '$id
 													<a href="" data-toggle="modal" data-target="<?php echo "#modulo_ver".$ln['idtb_curso']; ?>" title="Ver Módulo de Curso"><i class="fa fa-fw fa-eye"></i></a>
 													<a href="" data-toggle="modal" data-target="<?php echo "#update".$ln['idtb_curso']; ?>" title="Atualizar Curso"><i class="fa fa-fw fa-edit"></i></a>
 													<a href="" data-toggle="modal" data-target="#delete<?php echo $ln['idtb_curso']; ?>" title="Excluir"><i class="fa fa-fw fa-trash-o"></i></a>
+													<a href="" data-toggle="modal" data-target="#requisito<?php echo $ln['idtb_curso']; ?>" title="Requisitos"><i class="fa fa-chevron-down"></i></a>
+													<a href="" data-toggle="modal" data-target="<?php echo "#requisito_ver".$ln['idtb_curso']; ?>" title="Ver Requisitos do Curso"><i class="fa fa-fw fa-eye"></i></a>
+													<a href="" data-toggle="modal" data-target="<?php echo "#img".$ln['idtb_curso']; ?>" title="Adcionar foto do Curso"><i class="fa fa-file"></i></a>
+													<a href="" data-toggle="modal" data-target="<?php echo "#img_ver".$ln['idtb_curso']; ?>" title="Ver img do Curso"><i class="fa fa-fw fa-eye"></i></a>
 												</td>
 											</tr>
 											<?php include "../config/modal_adm_curso.php"; ?>
@@ -444,7 +574,7 @@ $pro = $mysqli->query("SELECT *FROM tb_dado_adm WHERE tb_login_idtb_login = '$id
 								</div>
 								<div class="col-sm-12 col-md-12">
 									<label for="Sobre">Sobre o Curso<em>*</em><em><small class="caracteres"></small></em></label>
-									<textarea name="sobre" id="sobre" class="form-control" rows="4" maxlength="250"></textarea>											
+									<textarea name="sobre" id="sobre" class="form-control" rows="10"></textarea>											
 								</div>
 								<div class="col-sm-12 col-md-12">
 									<label for="Sobre">Mercado de Trabalho<em>*</em><em><small class="caracteres"></small></em></label>
@@ -463,7 +593,7 @@ $pro = $mysqli->query("SELECT *FROM tb_dado_adm WHERE tb_login_idtb_login = '$id
 	</div>
 </div>
 <script src="../js/popper.min.js"></script>
-<script src="../js/jquery.js"></script>
+<script src="../js/jquery.min.js"></script>
 <script src="../js/bootstrap.js"></script>
 <script src="../js/jquery.mask.js"></script>
 <script>

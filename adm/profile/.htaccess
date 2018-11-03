@@ -1,0 +1,18 @@
+RewriteEngine on
+
+RewriteRule ^biblioteca\/virtual\/grupo\/([a-z,A-Z,0-9,^/\s,_-]+)\/([0-9])\/voltar$ \/biblioteca\/virtual\/grupo\/$1\/$2\/voltar [L]
+RewriteRule ^biblioteca\/virtual\/grupo\/([a-z,A-Z,0-9,^/\s,_-]+)\/([0-9])$ \/biblioteca\/virtual\/grupo\/$1\/$2 [L]
+
+RewriteRule ^biblioteca\/virtual\/arquivo\/([a-z,A-Z,0-9,_-]+)\/download$ \/biblioteca\/virtual\/arquivo\/$1\/download [L]
+RewriteRule ^biblioteca\/virtual\/arquivo\/([a-z,A-Z,0-9,_-]+)\/voltar$ \/biblioteca\/virtual\/arquivo\/$1\/voltar [L]
+RewriteRule ^biblioteca\/virtual\/arquivo\/([a-z,A-Z,0-9,_-]+)$ \/biblioteca\/virtual\/arquivo\/$1 [L]
+
+RewriteRule ^biblioteca\/virtual\/arquivo\/([a-z,A-Z,0-9,_-]+)\/([a-z,A-Z,0-9,_-]+)\/download$ \/biblioteca\/virtual\/arquivo\/$1\/$2\/download [L]
+RewriteRule ^biblioteca\/virtual\/arquivo\/([a-z,A-Z,0-9,_-]+)\/([a-z,A-Z,0-9,_-]+)\/voltar$ \/biblioteca\/virtual\/arquivo\/$1\/$2\/voltar [L]
+RewriteRule ^biblioteca\/virtual\/arquivo\/([a-z,A-Z,0-9,_-]+)\/([a-z,A-Z,0-9,_-]+)$ \/biblioteca\/virtual\/arquivo\/$1\/$2 [L]
+
+RewriteRule ^biblioteca\/virtual$ \/biblioteca\/virtual [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(biblioteca/.*)\.(gif|jpg|png|jpeg|css|js|swf|php|html)$ \/$1.$2 [R=301]

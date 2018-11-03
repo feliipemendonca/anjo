@@ -1,6 +1,7 @@
 <?php 
 include "../config/config.php";
 @$id = $_GET['id'];
+
 $sql = $mysqli->query("SELECT *FROM tb_curso WHERE idtb_curso = '$id' LIMIT  1") or die($mysqli->error);
 while($ln = $sql->fetch_assoc()) {
 	$idtb_curso = $ln['idtb_curso'];
@@ -11,18 +12,14 @@ while($ln = $sql->fetch_assoc()) {
 	$mercado = $ln['mercado'];
 	$publico = $ln['alvo'];
 	$ativa = $ln['ativa'];
+	$carga = $ln['carga'];
 }
-
-
 if (isset($_POST['solicitacao'])) {
 
 	$d = $_POST['id'];
 	$msg = $_POST['mensagem'];
 
 	$s = $msg.": ".$d;
-
-
-
 	$sql = $mysqli->query("INSERT INTO tb_solicitacao(contato, servico, empresa, cnpj, nome, email, mensagem) VALUES ('".$_POST['telefone']."','".$_POST['id']."','".$_POST['empresa']."','".$_POST['cnpj']."','".$_POST['nome']."','".$_POST['email']."','$s')")  or die($mysqli->error);
 
 	if ($sql) {
@@ -58,8 +55,43 @@ if (isset($_POST['solicitacao'])) {
 
 
 	<style type="text/css" media="screen">
-	body{
-		font-family: 'Roboto',"Helvetica Neue",Helvetica,Arial,sans-serif;
+
+	header{
+		background-image: url("../upload/<?php echo $img; ?>");
+		background-size: cover;
+	}
+	header .header{
+		background: #000000c2 !important;
+	}
+	header .header .counter-up ul {
+		list-style: none;
+		display: -webkit-inline-box;
+		display: -ms-inline-box;
+		display: -o-inline-box;
+		display: -moz-inline-box;
+		padding: 0;
+		margin:0;
+	}
+	header .header .counter-up ul i{
+		padding-left: 1em;
+		padding-right: 0.4em;
+	}
+	header .header .counter-up ul .fa-book{
+		padding-left: 0;
+	}
+	header .header .counter-up .card{
+		background: transparent;
+		border: 2px solid;
+		border-radius: 0;
+	}
+	header .header .counter-up .card h1{
+		padding: 1em;
+		padding-bottom: .5em;
+	}
+	header .header .counter-up .card .button{
+		padding: 2em;
+		padding-top: 0em;
+		padding-bottom: 2em;
 	}
 	.content{
 		padding-top: 3em;
@@ -67,11 +99,18 @@ if (isset($_POST['solicitacao'])) {
 	.btn-outline-dark{
 		color: #fff;
 		border: 1px solid #fff;
-		width: 50%;
 		cursor: pointer;
 	}
 	.btn-outline-dark:hover{
+		background: red;
+		color: #fff;
+		border: 1px solid;
+	}
+	.btn-outline-dark:focus{
+		color: #fff;
 		background: transparent;
+		border: 1px solid;
+
 	}
 	.panel{
 		background-image: url("../upload/<?php echo $img; ?>");
@@ -178,154 +217,191 @@ if (isset($_POST['solicitacao'])) {
 
 </head>
 <body>
-	<main class="container">
-		<header class="blog-header py-3">
-			<div class="row flex-nowrap justify-content-between align-items-center">
-				<div class="col-sm-12 col-md-4 pt-1"></div>
-				<div class="col-sm-12 col-md-4 text-center">
-					<a class="blog-header-logo text-dark" href="#"><img src="../img/logo.png" width="215px" alt=""></a>
+	<header>
+		<div class="header">
+			<nav class="navbar navbar-expand-lg navbar-light">
+				<a class="navbar-brand" href="index.php"></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="../">inicio</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="../sobre.php">sobre</a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="index.php">cursos</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="../servico.php">serviços</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="../galeria.php">galeria</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="../contato.php">contato</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"" href="contato.php"><i class="fas fa-lock"></i>Login</a>
+							<form action="../login.php" method="post" class="dropdown-menu p-4">
+								<div class="form-group">
+									<label for="exampleDropdownFormEmail2">Email<em>*</em></label>
+									<input type="email" class="form-control" name="email" id="exampleDropdownFormEmail2" placeholder="email@example.com" required>
+								</div>
+								<div class="form-group">
+									<label for="exampleDropdownFormPassword2">Senha<em>*</em></label>
+									<input type="password" class="form-control" name="senha" id="exampleDropdownFormPassword2" placeholder="Password">
+								</div>
+								<button type="submit" class="btn btn-danger" name="login" value="login">Entrar</button>
+							</form>
+						</li>
+					</ul>
 				</div>
-				<div class="col-sm-12 col-md-4 d-flex justify-content-end align-items-center">
+			</nav>
+			<div class="counter-up">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12 col-md-8">
+							<h1><?php echo $curso;?></h1>
+							<p><?php echo $sobre; ?>.</p>
+							<hr>
+							<ul>
+								<li><i class="fas fa-book"></i>Material Digital Incluso</li>
+								<li><i class="far fa-clock"></i>Carga Hóraria: <?php echo $carga; ?></li>
+								<li>								
+									<?php
+									$turma = $mysqli->query("SELECT *FROM tb_turma WHERE tb_curso_idtb_curso = '".$idtb_curso."' AND ativa ='1'");
+									if($turma->num_rows){
+										while ($tur = $turma->fetch_assoc()) {
+
+											echo "<i class='fas fa-map-marked-alt'></i>".$tur['endereco'].", ".$tur['bairro'].", ".$tur['cidade'].", ".$tur['cep'].", Rio Grande do Norte";
+
+										}
+									}
+									?>
+								</li>
+							</ul>
+						</div>
+						<div class="col-sm-12 col-md-4">
+							<div class="card">
+								<h1 class="text-center">Investimento</h1>
+								<h2 class="text-center">R$ <?php echo $valor; ?></h2>
+								<p class="text-center">Aceitamos todos os cartões e boleto</p>
+								<br>
+								<div class="button">
+									<div class="row">
+										<div class="col-sm-12 col-md-6">
+											<button type='button' class='btn btn-outline-dark form-control' data-toggle='modal' data-target='#turma' title='Matricule-se já'>Matrícule-se</button>
+										</div>
+										<div class="col-sm-12 col-md-6">
+											<button type="button" class="btn btn-outline-dark form-control" data-toggle="modal" data-target="#<?php echo $id; ?>">Invista</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-		</header>
-		<hr>
-		<div class="nav-scroller py-1 mb-2">
-			<ul class="nav d-flex justify-content-between">
-				<a class="p-2 text-muted" href="../">inicio</a>
-				<a class="p-2 text-muted" href="../sobre.php">sobre</a>
-				<a class="p-2 text-muted active" href="index.php">cursos</a>
-				<a class="p-2 text-muted" href="../servico.php">serviços</a>
-				<a class="p-2 text-muted" href="../galeria.php">galeria</a>
-				<a class="p-2 text-muted" href="../contato.php">contato</a>
-				<a class="p-2 text-muted" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"" href="contato.php"><i class="fas fa-lock"></i>Login</a>
-				<form action="../login.php" method="post" class="dropdown-menu p-4">
-					<div class="form-group">
-						<label for="exampleDropdownFormEmail2">Email<em>*</em></label>
-						<input type="email" class="form-control" name="email" id="exampleDropdownFormEmail2" placeholder="email@example.com">
-					</div>
-					<div class="form-group">
-						<label for="exampleDropdownFormPassword2">Senha<em>*</em></label>
-						<input type="password" class="form-control" name="senha" id="exampleDropdownFormPassword2" placeholder="Password">
-					</div>
-					<button type="submit" name="login" value="login" class="btn btn-danger">Entrar</button>
-				</form>
-			</ul>
 		</div>
-		<hr>
-	</main>
-	<section class="container text-center">
-		<div class="panel">
-			<div class="jumbotron">
+	</header>
+	<img src="../img/logo.png" class="logo" alt="">
+	<section>
+		<div class="container">
+			<div class="content">
 				<div class="row">
 					<div class="col-sm-12 col-md-8">
-						<div class="content">
-							<h1 class="jumbotron-heading text-left"><?php echo $curso; ?></h1>
-							<p class="lead text-left"><?php echo $sobre; ?></p>
-							<hr>
-							<p class="lead text-left">Material Digital Incluso.</p>
+						<div class="card" style="background: #0000000a; border: none; font-weight: bolder;">
+							<h2 style="font-weight: bold;">Requisitos para fazer o curso</h2>
+							<ul style="list-style: none;">
+								<?php $req = $mysqli->query("SELECT *FROM tb_requisito WHERE tb_curso_idtb_curso = '".$idtb_curso."'"); while ($asd = $req->fetch_assoc()) {?>
+									<li><i class="fa fa-angle-right"></i><?php echo $asd['requisito']; ?></li>
+								<?php } ?>
+								
+							</ul>
 						</div>
+						<h4>Mercado de Trabalho</h4>
+						<hr>			
+						<p><?php echo $mercado; ?></p>
+						<br>
+						<br>
+						<h4>Público Alvo</h4>
+						<hr>
+						<p><?php echo $publico; ?></p>
+						<br>
+						<br>
+						<h4>Módulos do Curso</h4>
+						<hr>
+						<?php 
+						$m = $mysqli->query("SELECT *FROM tb_modulo WHERE tb_curso_idtb_curso = '$idtb_curso'") or die($mysqli->error);
+						while ($o = $m->fetch_assoc()) {
+							$m_nome = $o['nome'];
+							$desc = $o['descricao'];
+							?>
+							<p><strong><?php echo $m_nome; ?></strong></p>
+							<h6><?php echo $desc; ?></h6>
+
+						<?php } ?>
 					</div>
 					<div class="col-sm-12 col-md-4">
-						<div class="card">
-							<p class="top">Investimento*</p>
-							<p>R$ <?php echo $valor; ?></p>
-							<p class="bottom" style="background: #ffffff57; margin: 0; padding-top: 0.4em; padding-bottom: 0.6em; font-size: 0.6em; margin-top: 1em;">Aceitamos todos os cartões e boleto</p>
-						</div>
-						<br>
-						<?php if ($ativa == 1) {
-							echo "<button type='button' class='btn btn-outline-dark form-control'  data-toggle='modal' data-target='#turma' title='Matricule-se já'>Matrícule-se</button";
+						<?php $g = $mysqli->query("SELECT * FROM tb_galeria WHERE tb_curso_idtb_curso = '".$idtb_curso."'"); 
+						while ($ga = $g->fetch_assoc()) {
+							echo "<img class='img-fluid' src='../upload/".$ga['img']."' title='".$curso."'>";
 						} ?>
+					</div>
+				</div>						
+			</div>
+		</div>
+		<div class="modal" tabindex="-1" role="dialog" id="turma">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<p class="modal-title"><small>Selecione uma turma mais próximo de você</small></p>
+
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="container">
+							<div class="col-sm-12 col-md-12">
+								<div class="list-group">
+									<?php 
+
+									$tm =  $mysqli->query("SELECT *FROM tb_turma WHERE tb_curso_idtb_curso = '$idtb_curso' AND ativa = 1") or die($mysqli->error);
+									while ($l = $tm->fetch_assoc()) {
+
+										$idtb_turma  = $l['idtb_turma'];
+										$idtb_prof = $l['tb_professor_idtb_professor'];
+										$endereco = $l['endereco'];
+										$bairro = $l['bairro'];
+										$numero = $l['numero'];
+										$cidade = $l['cidade'];
+										$ativa = $l['ativa'];
+										$dia = $l['dia'];
+										$hora = $l['hora'];
+										$complemento = $l['complemento'];
+										?>
+										<a href="cadastro.php?cur=<?php echo base64_encode($id);?>&tur=<?php echo base64_encode($idtb_turma); ?>&pro=<?php echo base64_encode($idtb_prof); ?>"  class="list-group-item list-group-item-action">
+											<em><i class="fas fa-map-marker-alt"></i></em>Horário: <?php echo $dia." / ".$hora; ?><br>Endereço: <?php echo $endereco.", ".$bairro.", ".$cidade.", ".$numero.". ".$complemento; ?>
+										</a>
+										<br>
+									<?php } ?>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-
-	<div class="container">
-		<div class="content">
-			<div class="row">
-				<div class="col-sm-12 col-md-8">
-					<h4>Mercado de Trabalho</h4>
-					<hr>			
-					<p><?php echo $mercado; ?></p>
-					<br>
-					<br>
-					<h4>Público Alvo</h4>
-					<hr>
-					<p><?php echo $publico; ?></p>
-					<br>
-					<br>
-					<h4>Módulos do Curso</h4>
-					<hr>
-					<?php 
-					$m = $mysqli->query("SELECT *FROM tb_modulo WHERE tb_curso_idtb_curso = '$idtb_curso'") or die($mysqli->error);
-					while ($o = $m->fetch_assoc()) {
-						$m_nome = $o['nome'];
-						$desc = $o['descricao'];
-						?>
-						<p><strong><?php echo $m_nome; ?></strong></p>
-						<h6><?php echo $desc; ?></h6>
-						
-					<?php } ?>
-				</div>
-				<div class="col-sm-12 col-md-4">
-					<div class="card" style="background: #0000000a; border: none; font-weight: bolder;">
-						<h4 class="text-center" style="padding-top: 3em; font-weight: bold;">Invista em sua Empresa</h4>
-						<p class="text-center">Capacite seus funcionarios</p>
-						<div class="btn-card" style="padding: 8em; padding-top: 0; padding-bottom: 3em; font-weight: bold;">
-							<button class="btn btn-outline-primary form-control" data-toggle="modal" data-target="#<?php echo $id; ?>">Invista</button>
-						</div>
-					</div>
-				</div>
-			</div>						
-		</div>
-	</div>
-	<div class="modal" tabindex="-1" role="dialog" id="turma">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<p class="modal-title"><small>Selecione uma turma mais próximo de você</small></p>
-
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div class="container">
-						<div class="col-sm-12 col-md-12">
-							<div class="list-group">
-								<?php 
-
-								$tm =  $mysqli->query("SELECT *FROM tb_turma WHERE tb_curso_idtb_curso = '$idtb_curso' AND ativa = 1") or die($mysqli->error);
-								while ($l = $tm->fetch_assoc()) {
-
-									$idtb_turma  = $l['idtb_turma'];
-									$idtb_prof = $l['tb_professor_idtb_professor'];
-									$endereco = $l['endereco'];
-									$bairro = $l['bairro'];
-									$numero = $l['numero'];
-									$cidade = $l['cidade'];
-									$ativa = $l['ativa'];
-									$dia = $l['dia'];
-									$hora = $l['hora'];
-									$complemento = $l['complemento'];
-									?>
-									<a href="cadastro.php?cur=<?php echo base64_encode($id);?>&tur=<?php echo base64_encode($idtb_turma); ?>&pro=<?php echo base64_encode($idtb_prof); ?>"  class="list-group-item list-group-item-action">
-										<em><i class="fas fa-map-marker-alt"></i></em>Horário: <?php echo $dia." / ".$hora; ?><br>Endereço: <?php echo $endereco.", ".$bairro.", ".$cidade.", ".$numero.". ".$complemento; ?>
-									</a>
-									<br>
-								<?php } ?>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-				</div>
-			</div>
-		</div>
-	</div>
 	<div class="modal" tabindex="-1" role="dialog" id="<?php echo $id; ?>">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">

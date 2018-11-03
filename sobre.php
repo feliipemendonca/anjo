@@ -10,93 +10,50 @@
 
 </head>
 <body>
-	<!-- <header>
-		<ul class="icons">
-			<li><a href="" title=""><i class="fab fa-facebook"></i></a></li>
-			<li><a href="" title=""><i class="fab fa-instagram"></i></a></li>
-			<li><a><i class="fas fa-envelope"></i> anjosdanoite@anjosdanoite.com </a></li>
-		</ul>           
-	</header>
-	<nav class="navbar-expand-lg">
-		<a class="navbar-brand" href="index.php"><img src="img/logo.png" alt=""></a>
+	<nav class="navbar navbar-expand-lg navbar-light">
+		<a class="navbar-brand" href="index.php"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span><i class="fas fa-bars"></i></span>
+			<span class="navbar-toggler-icon"></span>
 		</button>
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active">
-					<a class="nav-link" href="sobre.php">sobre</span></a>
+				<li class="nav-item">
+					<a class="nav-link" href="../">inicio</a>
 				</li>
-				<li class="nav-item active">
-					<a class="nav-link" href="curso/">curso</span></a>
+				<li class="nav-item">
+					<a class="nav-link" href="sobre.php">sobre</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="curso/">cursos</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="servico.php">serviços</a>
 				</li>
-				<li class="nav-item active">
-					<a class="nav-link" href="galeria.php">galeria</span></a>
+				<li class="nav-item">
+					<a class="nav-link" href="galeria.php">galeria</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="contato.php">contato</a>
 				</li>
 				<li class="nav-item">
-					<div class="btn-group">
-						<button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<i class="fas fa-lock"></i>login
-						</button>
-						<form action="login.php" method="post" class="dropdown-menu p-4">
-							<div class="form-group">
-								<label for="exampleDropdownFormEmail2">Email<em>*</em></label>
-								<input type="email" class="form-control" name="email" id="exampleDropdownFormEmail2" placeholder="email@example.com">
-							</div>
-							<div class="form-group">
-								<label for="exampleDropdownFormPassword2">Senha<em>*</em></label>
-								<input type="password" class="form-control" name="senha" id="exampleDropdownFormPassword2" placeholder="Password">
-							</div>
-							<button type="submit" name="login" value="login" class="btn btn-danger">Entrar</button>
-						</form>
-					</div>
+					<a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"" href="contato.php"><i class="fas fa-lock"></i>Login</a>
+					<form action="login.php" method="post" class="dropdown-menu p-4">
+						<div class="form-group">
+							<label for="exampleDropdownFormEmail2">Email<em>*</em></label>
+							<input type="email" class="form-control" name="email" id="exampleDropdownFormEmail2" placeholder="email@example.com" required>
+						</div>
+						<div class="form-group">
+							<label for="exampleDropdownFormPassword2">Senha<em>*</em></label>
+							<input type="password" class="form-control" name="senha" id="exampleDropdownFormPassword2" placeholder="Password">
+						</div>
+						<button type="submit" class="btn btn-danger" name="login" value="login">Entrar</button>
+					</form>
 				</li>
 			</ul>
 		</div>
-	</nav> -->
-	<main class="container">
-		<header class="blog-header py-3">
-			<div class="row flex-nowrap justify-content-between align-items-center">
-				<div class="col-sm-12 col-md-4 pt-1"></div>
-				<div class="col-sm-12 col-md-4 text-center">
-					<a class="blog-header-logo text-dark" href="#"><img src="img/logo.png" width="215px" alt=""></a>
-				</div>
-				<div class="col-sm-12 col-md-4 d-flex justify-content-end align-items-center">
-				</div>
-			</div>
-		</header>
-		<hr>
-		<div class="nav-scroller py-1 mb-2">
-			<ul class="nav d-flex justify-content-between">
-				<a class="p-2 text-muted" href="../">inicio</a>
-				<a class="p-2 text-muted active" href="sobre.php">sobre</a>
-				<a class="p-2 text-muted" href="curso/">cursos</a>
-				<a class="p-2 text-muted" href="servico.php">serviços</a>
-				<a class="p-2 text-muted" href="galeria.php">galeria</a>
-				<a class="p-2 text-muted" href="contato.php">contato</a>
-				<a class="p-2 text-muted" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"" href="contato.php"><i class="fas fa-lock"></i>Login</a>
-				<form action="login.php" method="post" class="dropdown-menu p-4">
-					<div class="form-group">
-						<label for="exampleDropdownFormEmail2">Email<em>*</em></label>
-						<input type="email" class="form-control" name="email" id="exampleDropdownFormEmail2" placeholder="email@example.com">
-					</div>
-					<div class="form-group">
-						<label for="exampleDropdownFormPassword2">Senha<em>*</em></label>
-						<input type="password" class="form-control" name="senha" id="exampleDropdownFormPassword2" placeholder="Password">
-					</div>
-					<button type="submit" name="login" value="login" class="btn btn-danger">Entrar</button>
-				</form>
-			</ul>
-		</div>
-		<hr>
-	</main>
+	</nav>
+	<img src="img/logo.png" class="logo" alt="">
 	<section class="content-top">
 		<div class="container">
 			<div class="row">

@@ -139,7 +139,7 @@ include "../config/config.php";
 												$s = $mysqli->query("INSERT INTO tb_login(email, senha, tipo) VALUES('".$_POST['email_aluno']."','$cry','3')") or die($mysqli->error);
 												$q = $mysqli->query("SELECT *FROM tb_login WHERE email ='".$_POST['email_aluno']."'") or die($mysqli->error);
 												$id = $q->fetch_assoc()['idtb_login'];
-												$sql = $mysqli->query("INSERT INTO tb_aluno(nome, cpf, rg, orgao, profissao, tipo_sangue, data, data_cadastro, tb_curso_idtb_curso, tb_sexo_idtb_sexo, tb_escolaridade_idtb_escolaridade, tb_contato_idtb_contato, tb_login_idtb_login) VALUES('".$_POST['nome']."','".$_POST['cpf']."','".$_POST['rg']."','".$_POST['orgao']."','".$_POST['profissao']."','".$_POST['tipo_sangue']."','$n','$date','".$_POST['curso']."','".$_POST['sexo']."','".$_POST['escolaridade']."','$c','$id')") or die($mysqli->error);
+												$sql = $mysqli->query("INSERT INTO tb_aluno(nome, cpf, rg, orgao, profissao, tipo_sangue, data, data_cadastro, mae, pai tb_curso_idtb_curso, tb_sexo_idtb_sexo, tb_escolaridade_idtb_escolaridade, tb_contato_idtb_contato, tb_login_idtb_login) VALUES('".$_POST['nome']."','".$_POST['cpf']."','".$_POST['rg']."','".$_POST['orgao']."','".$_POST['profissao']."','".$_POST['tipo_sangue']."','$n','$date','".$_POST['mae']."','".$_POST['pai']."','".$_POST['curso']."','".$_POST['sexo']."','".$_POST['escolaridade']."','$c','$id')") or die($mysqli->error);
 
 												$x = $mysqli->query("SELECT *FROM tb_aluno WHERE cpf ='".$_POST['cpf']."'") or die($mysqli->error);
 												$idAluno = $x->fetch_assoc()['idtb_aluno'];
@@ -261,6 +261,14 @@ include "../config/config.php";
 						<div class="col-sm-12 col-md-4">
 							<label for="Fixo">Fixo</label>
 							<input type="tel" class="form-control use-soNumeros use-addMask fixo" name="tel2" placeholder="(00) 0000-0000" maxlength="14" value="<?php echo @$_POST['tel2']; ?>">
+						</div>
+						<div class="col-sm-12 col-md-6">
+							<label>Nome Mãe<em>*</em></label>
+							<input type="text" class="form-control" maxlength="45" name="mae">
+						</div>
+						<div class="col-sm-12 col-md-6">
+							<label>Nome pai<em>*</em></label>
+							<input type="text" class="form-control" maxlength="45" name="pai">
 						</div>
 						<div class="col-sm-12 col-md-12">
 							<br>

@@ -1,0 +1,18 @@
+RewriteEngine on
+
+RewriteRule ^biblioteca\/index.php$ \/biblioteca\/ [L]
+RewriteRule ^biblioteca\/$ \/biblioteca\/ [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(biblioteca/.*)\.(gif|jpg|png|jpeg|css|js|swf|php|html)$ \/$1.$2 [R=301]
+
+RewriteRule ^notas\/index.php$ \/notas\/ [L]
+RewriteRule ^notas\/$ \/notas\/ [L]
+RewriteRule ^notas\/envioNotas.php$ \/notas\/envioNotas.php [L]
+
+RewriteRule ^presenca\/index.php$ \/presenca\/ [L]
+RewriteRule ^presenca\/$ \/presenca\/ [L]
+RewriteRule ^presenca\/presenca_post.php$ \/presenca\/presenca_post.php [L]
+RewriteRule ^presenca\/presenca_get.php$ \/presenca\/presenca_get.php [L]
+RewriteRule ^presenca\/porcentagemPresenca.php$ \/presenca\/porcentagemPresenca.php [L]

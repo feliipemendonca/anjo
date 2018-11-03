@@ -86,7 +86,7 @@ $token = $_SESSION["tokenGenerated"];
                         <?php
 
                         include "../professor/checkSession.php";
-                        if(!($turma = $_SESSION["turma"])){ ?>
+                        if(!(@$turma = $_SESSION["turma"])){ ?>
                             <!--<h3 style="padding: 20px; padding-bottom: 0px;">Por favor selecione a turma!</h3>
                             <h4 style="padding: 20px; padding-top: 0px;">Redirecionando em <span id="span_segs"></span></h4>-->
                         
@@ -115,12 +115,16 @@ $token = $_SESSION["tokenGenerated"];
                             <?php
                             exit();
                         }
+                        
+                        $notasStr = "";
+                        for($a=0; $a < quantMaxNotas; $a+=1){
+                            $notasStr .= "\n\t      ";
+                            $notasStr .= "n.nota" . ($a+1) . ", n.envio_nota" . ($a+1);
 
-                        $sql = "SELECT a.idtb_aluno, a.nome,
-                        n.nota1,n.envio_nota1,
-                        n.nota2,n.envio_nota2,
-                        n.nota3,n.envio_nota3,
-                        n.nota4,n.envio_nota4 FROM tb_notas n
+                            if($a != quantMaxNotas -1) $notasStr .= ",";
+                        }
+
+                        $sql = "SELECT a.idtb_aluno, a.nome, $notasStr FROM tb_notas n
                         RIGHT JOIN tb_turma_aluno t ON t.idtb_turma_aluno = n.id_turma_aluno
                         JOIN tb_aluno a ON a.idtb_aluno = t.tb_aluno_idtb_aluno
                         WHERE t.tb_turma_idtb_turma=$turma";
@@ -151,12 +155,21 @@ $token = $_SESSION["tokenGenerated"];
                                     while($res = mysqli_fetch_assoc($query)){
                                         $id_aluno = $res["idtb_aluno"];
                                         $nome_aluno = $res["nome"];
+                                        
+                                        $notas = array();
+                                        for($a=0; $a < quantMaxNotas; $a+=1){
+                                            $notas[$a] = $res["nota" . ($a+1)];
+                                        }
+                                        
+                                        /*
                                         $nota1 = $res["nota1"];
                                         $nota2 = $res["nota2"];
                                         $nota3 = $res["nota3"];
                                         $nota4 = $res["nota4"];
+                                        */
 
-                                        echo getTableNotasBody($id_aluno, $nome_aluno, [$nota1, $nota2, $nota3, $nota4]);
+                                        //echo getTableNotasBody($id_aluno, $nome_aluno, [$nota1, $nota2, $nota3, $nota4]);
+                                        echo getTableNotasBody($id_aluno, $nome_aluno, $notas);
                                     } ?>
                                 </table>
                             <?php } ?>

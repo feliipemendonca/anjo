@@ -1,555 +1,356 @@
 em{
 	color: red;
 }
-.nav-scroller .nav .text-muted{
-	font-size: 1.4em;
-	text-transform: capitalize;
+.logo {
+	position: absolute;
+	top: 0;
 }
-.nav-scroller {
-	padding: 14%;
-	padding-top: 0;
-	padding-bottom: 0;
+nav{
+	background: #fff;
 }
-.nav-scroller a:hover{
-	border: none;
+.navbar-light .navbar-nav .nav-link{
+	color: black;
+	text-transform: uppercase;
+	font-weight: 500;
+	border-bottom:2px solid transparent;
+}
+.navbar-light .navbar-nav .nav-link:hover{
+	color: red;
+	border-bottom:2px solid red;
 }
 .active{
-	border-bottom: 2px solid;
+	color: red !important;
+	border-bottom:2px solid red !important;
 }
-.content-top{
-	padding-top: 6em;
-	padding-bottom: 4em;
-}
-.content-top .media>img{
-	width: 20%;
-}
-.contetn-top .media .media-body >h5{
-	font-size: 17px!important;
-}
-.content-top .media .media-body p{
-	font-size: 12px;
-	font-weight: 600;
-	color: #4e4e4e;
-}
-.content-top > a{
-	margin-top: 1em;
+.active a{
+	color: red !important;
 }
 
+/*curso/*/
+.curso-content-bottom, .depoimento, .top{
+	padding-top: 5em;
+	padding-bottom: 5em;
+}
+.curso-content-bottom h1, .depoimento h1, .top h1{
+	font-weight: bolder;
+}
+.curso-content-bottom p, .depoimento p, .top p{
+	text-shadow: 0px 0px 1px #bfbfbf;
+	padding-bottom: 1em;
+}
+.curso-content-bottom .card{
+	border: 1px transparent;
+}
+.curso-content-bottom .card .card-body{
+	border: 1px solid #00000017;
+}
+.curso-content-bottom .card .card-body .card > .card-img-top{
+	height: 11em !important;
+}
+.curso-content-bottom .card .card-body h4{
+	font-size: 17px;
+}
+.curso-content-bottom .card .card-body .top{
+	font-size: 16px;
+	font-weight: 500;
+}
+.curso-content-bottom .card .card-body .top p{
+	float: left;
+}
+.curso-content-bottom .card .card-body .top p a{
+	padding-right: 12px;
+}
+
+/* Paralax*/
 .paralax{
 	/* <a href="https://br.freepik.com/fotos-gratis/blocos-de-icone-de-midia-social-no-laptop-sobre-o-fundo-azul_2573249.htm">Projetado pelo Freepik</a> */
-	background-image: url('../img/paralax.jpg');
+	background-image: url('../img/1.jpg');
+	min-height: 14em;
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	color: #fff;
 }
-.paralax .paralax-main{
-	width: 100%;
-	background: #00000054;
-}
 .paralax .container{
 	padding-top: 3em;
 	padding-bottom: 3em;
 }
-.paralax .text-center{
-	font-weight: bolder;
-	font-size: 2.2em;
-}
-.paralax .nav-scroller {
-	display: contents;
-}
-.paralax .nav-scroller .nav{
-	padding: 36%;
-	padding-top: 0;
-	padding-bottom: 0;
-}
-.paralax .nav-scroller .text-muted i{
-	font-size: 2.2em;
-	color: #fff;
-}
-.curso-content-top{
-	padding-top: 1em;
-}
-.content-bottom{
-	padding-bottom: 5em;
-}
-.content-bottom{
-	/*background: #f5f5f5bd;
-	background: #d6d6d6;*/
-	background: #ffc344;
-	color: #fff;
-}
-.content-bottom, .content-bottom .content-header{
-	padding-top: 1em;
-	padding-bottom: 3em;
-}
-.content-bottom .card{
-	background: #eee;
-	border: 1px solid #eee;
-	border-radius: 0;
-}
-.content-bottom .card .card-title{
-	color: #ffc344;
-	font-weight: bolder;
-}
-.content-bottom .card .card-text{
-	color: #4e4141;
-	font-weight: bolder;
-}
-.content-bottom .content-header .btn-outline-danger{
-	margin-top: 3em;
-	margin-bottom: 3em;
-}
-.content-bottom .content-header .btn-outline-danger:hover{
-	background: none;
-	border: 1px solid red;
-	color: red;
-}
-.content-new{
-	/*background-image: url('../img/1856.jpg');
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	min-height: 15em;
-	color:  #fff;
-	*/
-	padding: 11em;
-	padding-top: 5em;
-	padding-bottom: 5em;
-}
-.content-new .form-inline .form-group label{
-	padding-right: 1em;
-	padding-left: 0.5em;
-	border-left: 7px solid #ffc107;
-	font-size: 1.9em;
-}
-.content-new .form-inline .form-group label i{
-	padding-right: 0.4em;
-	font-size: 1.3em !important;
-	color: red;
-}
-.content-new .form-inline .form-group{
+.paralax span i{
 	width: 100%;
 }
-.content-new .form-inline .form-group .form-control{
-	width: 45%;
-	text-align: center;
-	background: rgb(11, 24, 35);
-	color: #fff;
-	height: 2.5em;
-	border: none;
-	border-radius: 0;
-}
-.content-new .form-inline .form-group .form-control:hover{
-	border: none;
-	border-radius: 0;
-}
-.content-new .form-inline .form-group .form-control:focus{
-	border: none;
-	border-radius: 0;
-	border-color: transparent;
-}
-.content-new .form-inline .form-group .btn-warning{
-	border: none;
-	cursor: pointer;
-	height: 2.5em;
-	width: 2.5em;
-}
-/* Pagina Cursos */
-.curso-content-top .jumbotron{
-	/*background: #e9ecef6b;*/
-	/* background: rgb(11, 24, 35); */
-	border-radius: 0;
-	/* color: #fff; */
+.paralax .counter-up{
+	font-size: 21px;
 	font-weight: bolder;
-	padding-top: 2em;
 }
-.curso-content-bottom .card{
-	border: transparent;
+.paralax .top{
+	background: #0000006b;
 }
-.curso-content-bottom .card .card-body{
-	border: 1px solid #77777791;
-	padding-bottom: 0;
-	color: #000000d6;
-	font-weight: 500;
-}
-.curso-content-bottom .card:hover{
-	box-shadow: 0px 1px 1px #e6e6e6;
-}
-.curso-content-bottom .card .carousel-item{
-	display: block;
-}
-.curso-content-bottom .card .carousel-caption{
-	background: #e51b26;
-	/* color: #444444; */
+.paralax .link{
 	color: #fff;
-	width: 100%;
-	font-weight: bolder;
-	padding: 0;
-	top: 83%;
-	left: 0;	
-	bottom: 0;
-	text-shadow: 0px 0px 10px black;
+	border:2px solid #fff;
+	padding-top: 9px;
+	padding-bottom: 9px;
 }
-.curso-content-bottom .card .carousel-caption p{
-	padding-top: 0.6em;
+.paralax .link a{
+	text-decoration: none;
+	color: #fff;
 }
-.curso-content-bottom .card .card-body p{
-	font-size: 15px;
+/*depoimentos*/
+.depoimento .card .card-img-top{
+	width: 29%;
+	height: 9em;
+	margin-top: 2em;
+	margin-left: 12em;
+	border-radius: 100%;
 }
-.curso-content-bottom .card .card-body ul{
+
+/*footer*/
+.contact h1{
+	padding-bottom: 2em;
+}
+.contact .contact-left hr{
+	border-top: 2px solid black;
+}
+.contact .contact-left span{
+	color: red;
+	font-size: 24px;
+	font-weight: 400;
+}
+.contact .contact-left .contact-bottom{
+	padding-top: 2.1em;
+}
+.contact .contact-left .contact-bottom ul{
+	float: right;
 	list-style: none;
-	font-size: 12px;
-	color: #1c1d1d !important;
 	display: -webkit-inline-box;
 	display: -o-inline-box;
-	display: -moz-inline-box;
 	display: -ms-inline-box;
-	padding: 0;
-	padding-top: 1em;
-	margin: 0;
-	text-transform: capitalize;
-	width: 100%;
-	font-size: 1em;
-	height: 3em;
+	display: -moz-inline-box;
 }
-.curso-content-bottom .card .card-body ul li{
-	padding: 0.3em;
+.contact .contact-left .contact-bottom ul li{
+	padding: 7px;
 }
-.curso-content-bottom .card .card-body ul li i{
+.contact .contact-left .contact-bottom ul li i{
+	padding: 0.5em;
+	border: 3px solid black;
+	color: black;
+	font-weight: 700;
+}
+.contact .contact-left .contact-bottom ul li .fa-facebook-f{
+	height: 2.4em;
+	width: 2.5em;
+	padding-left: 14px;
+}
+.contact .contact-left .contact-bottom ul li .fa-instagram{
+	height: 2.4em;
+	width: 2.5em;
+	padding-left: 11px;
+}
+.contact .contact-left .contact-bottom ul li i:hover{
 	color: red;
+	border: 3px solid red;
 }
-.curso-content-bottom .card .card-body .btn-warning, .curso-content-bottom .card .card-body .btn-info{
-	width: 49%;
+.contact .contact-rigth{
+	background: #ffffff61;
+	padding: 2em;
+	font-size: 14px;
+	text-shadow: 0px 0px 1px #333333;
 }
-.curso-content-bottom .card .card-body .btn-danger{
+.contact .contact-rigth form span i{
+	position: absolute;
+	top: 3em;
+	left: 21px;
+}
+.contact .contact-rigth form .form-control{
+	background: transparent !important;
+	border-radius: 0;
+	border: 2px solid #fff;
+	padding-left: 1.5em;
+	border-bottom: 2px solid red;
+}
+.contact .contact-rigth form .form-control:focus{
+	border-color: transparent;
+	border-bottom: 2px solid black;
+	outline: 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+.contact .contact-rigth form button[type="submit"]{
+	background: transparent;
+	border: 2px solid black;
+	border-radius: 0;
+	margin-top: 1.2em;
+	cursor: pointer;
+	color: black;
+	font-weight: 700;
+}
+.contact .contact-rigth form button[type="submit"]:hover{
+	color: red;
+	border: 2px solid red;
+}
+
+/*serviços*/
+header{
+	background-image: url("../img/1.jpg");
+	background-size: cover;
+	margin-bottom: 2em;
+}
+header .header{
+	background: #0000006b;
+}
+header .header .counter-up{
 	color: #fff;
-}
-footer{
-	background: rgb(216, 216, 216);
-	font-size: 11px;
-	padding-top: 5em;
-	margin-top: 5em;
-	padding-bottom: 2em;
 	font-weight: bolder;
+	padding: 5em
+}
+.service .card .card-body{
+	border: 1px solid #00000063 !important;
+}
+.service .card .card-body button{
+	margin-bottom: 1em;
+	border: 2px solid black;
+	border-radius: 0;
+	color: black;
+	font-weight: 600;
 }
 
+
+
+
+
+
+
+
+/*fpooter*/
+footer{
+	padding:1rem;
+	padding-top: 3em;
+	background: #dededeb5;
+	font-size: 12px;
+	color: #00000075;
+	font-weight: 700;
+}
+
+
+
+
+/*320 x 568/*/
 @media(min-width: 320px){
-	.navbar-expand-lg .navbar-brand{
-		width: 53%;
-		margin: 0 !important;
-		padding-top: 0 !important;
-
-	}
-	.navbar-expand-lg .navbar-brand > img{
-		padding-left: 0;
-		width: 100%;
-	}
-	.navbar-expand-lg .navbar-toggler{
-		float: right;
-		padding-top: 1.5em;
-		padding-right: 1em;
-		font-size: 2em;
-	}
-	.navbar-expand-lg .navbar-toggler:focus{
-		outline: 0;
-	}
-	.navbar-expand-lg .navbar-collapse{
-		padding-left: 0;
-		margin-top: 0;
-	}
-	.navbar-expand-lg .navbar-collapse .navbar-nav{
-		text-align: center;
-	}
-	.navbar-expand-lg> .navbar-collapse > .navbar-nav> .nav-item > .btn-group > .dropdown-menu{
-		left: -7em !important;
-	}
-	.content-top .media{
-		padding-bottom: 2em;
-	}
-	.content-new{
-		padding: 0em;
-	}
-	.content-new .form-inline .form-group label{
-		padding-left: 0;
-		font-size: 1.5em;
-	}
-	.content-new .form-inline .form-group .form-control{
-		width: 89%;
-		float: left;
-	}
-	.content-new .form-inline .form-group .btn-warning{
-		width: 11%;
-	}
-	/*sobre*/
-	.jumbotron{
-		padding: 1em 1em;
-		margin-bottom: 0;
-		border-radius: 0;
-	}
-	.jumbotron .navbar-nav .nav-item{
-		padding: 0.2em;
-	}
-	.content-bottom .card{
-		margin-bottom: 1em;
-	}
-	/*Curso index*/
-	.curso-content-bottom{
-		padding-top: 2em;
-	}
-	.curso-content-bottom .card .card-body p{
-		font-size: 14px;
-	}
-	.curso-content-bottom .card .card-body .top{
-		margin-top: -27px;
-	}
-	.curso-content-bottom .card .card-body ul{
-		font-size: 11.8px;
-		margin-top: 5px;
-		margin-bottom: 5px;
-		font-weight: 500;
-	}
-	.curso-content-bottom .card .card-body .btn-info, .curso-content-bottom .card .card-body .btn-danger, .curso-content-bottom .card .card-body .btn-warning{
-		width: 49%;
-		font-size: 0.9em;
-		color: #fff;
-	}
-
-
-	/*Curso - Curso*/
-	.panel .navbar-nav{
+	nav{
 		padding-top: 1em;
-		display: -webkit-flex !important;
-		display: -moz-flex !important;
-		display: -o-flex !important;
-		display: -ms-flex !important;
-		text-transform: capitalize;
-		padding: 0;
-
+		padding-bottom: 1em;
 	}
-	.nav-link{
-		padding: 0 !important;
+	.logo{
+		width: 30%;
+		left: 1em
 	}
-	.content{
+	nav ul{
 		padding-top: 2em;
 	}
-
-}
-@media(min-width: 375px){
-	.curso-content-bottom .card .card-body p{
-		font-size: 14px;
+	.paralax .link{
+		width: 30%;
+		margin-left: 8em;
 	}
-	.curso-content-bottom .card .card-body ul{
-		font-size: 14px;
-		margin-top: 0;
-		margin-bottom: 5px;
-	}
-
-
 }
+
 @media(min-width: 568px){
-	.navbar-expand-lg{
-		padding-bottom: 0;
+	.logo{
+		width: 20%;
+		left: 3em
 	}
-	.navbar-expand-lg .navbar-brand{
-		width: 33%;
+	nav ul{
+		padding-top: 3em;
 	}
-	.navbar-expand-lg .navbar-toggler{
-		padding-left: 29em;
-		margin-top: -140px;
-	}
-	.content-new .form-inline .form-group .form-control{
-		width: 84%;
-	}
-	.content-new .form-inline .form-group .btn-warning{
-		width: 16%;
-		position: absolute;
-		margin-top: 44px;
-	}
-	.curso-content-bottom .card .card-body p{
-		font-size: 16px;
-	}
-	.curso-content-bottom .card .card-body .top{
-		margin-top: -37px;
-	}
-	.curso-content-bottom .card .card-body ul{
-		font-size: 16px;
-		margin-top: 0;
-	}
-	.curso-content-bottom .card .card-body .btn-info, .curso-content-bottom .card .card-body .btn-danger, .curso-content-bottom .card .card-body .btn-warning{
-		width: 49.5%;
-	}
-	.curso-content-bottom .card .card-body ul{
-		padding-left: 5em;
-	}
-
-}
-@media(min-width: 576px){
-	.content-new .form-inline .form-group label{
-		margin-left: 3em;
-	}
-	.content-new .form-inline .form-group .form-control{
-		width: 85.5%;
-	}
-	.content-new .form-inline .form-group .btn-warning{
-		width: 13%;
-		margin-top: 18px;
-		left: 28.7em;
+	.paralax .link{
+		margin-left: 11em;
 	}
 }
+/*375 x 667*/
+@media(min-width: 375px){}
 @media(min-width: 667px){
-	.navbar-expand-lg .navbar-toggler{
-		margin-top: -161px;
+	nav{
+		padding-top: 2em !important;
+		padding-bottom: 2em !important;
 	}
-	.navbar-expand-lg .navar-toggler .fa-bars{
-		font-size: 1.2em;
+	nav ul{
+		padding-top: 4em;
 	}
-	.content-new .form-inline .form-group .form-control{
-		width: 85%;
+	nav ul .dropdown-menu{
+		width: 49%;
+		position: absolute!important;
+		top: 9em;
+		left: 20em;
 	}
-	.content-new .form-inline .form-group .btn-warning{
-		width: 12%;
-		margin-top: 18px;
-		left: 31.3em;
+}
+
+/*992 x 1024 x x768 */
+@media(min-width: 992px){
+	nav ul{
+		margin-top: -46px;
+		padding-left: 28em !important;
+		padding-bottom: 1em;
+	}
+	.paralax .link{
+		margin-left: 20.5em;
+	}
+} 
+@media(min-width: 1024px){
+	.logo{
+		width: 17%;
+	}
+	nav{
+		padding-top: 0em !important;
+		padding-bottom: 0em !important;
+	}
+	nav ul{
+		margin-top: -43px;
+		padding-left: 26em !important;
+		padding-bottom: 1.5em;
+	}
+	.contact .contact-left .contact-bottom{
+		padding-top: 1em;
 	}
 }
 @media(min-width: 768px){
-	.navbar-expand-lg .navbar-brand{
-		width: 23%;
+	.paralax .link{
+		margin-left: 11.5em;
 	}
-	.navbar-expand-lg .navbar-toggler{
-		margin-top: -149px;
-	}
-	.content-new .form-inline .form-group{
-		width: 100%;
-	}
-	.content-new .form-inline .form-group label{
-		margin-left: 7em;
-	}
-	.content-new .form-inline .form-group .form-control{
-		width: 67%;
-		margin-left: 5em;
-	}
-	.content-new .form-inline .form-group .btn-warning{
-		left: 35.1em;
-	}
-	.curso-content-bottom .card .carousel-caption{
-		height: 4em;
-	}
-	.curso-content-bottom .card .card-body p{
-		font-size: 14px;
-	}
-	.curso-content-bottom .card .card-body .top{
-		margin-top: 112px;
-	}
-	.curso-content-bottom .card .card-body ul{
-		font-size: 12px;
-		display: contents;
-		display: -moz-inline-block;
-		display: -o-inline-block;
-		display: -ms-inline-block;
-	}
-	.curso-content-bottom .card .card-body .btn-info, .curso-content-bottom .card .card-body .btn-danger, .curso-content-bottom .card .card-body .btn-warning{
-		width: 100%;
-		margin-bottom: 5px;
-	}
+}
 
-}
-@media(min-width: 900px){
-	.navbar-expand-lg .navbar-toggler{
-		margin-top: -155px;
+/*1360 x 1150*/
+@media(min-width: 1360px){
+	.logo{
+		width: 12%;
+		left: 7em;
 	}
-	.content-new .form-inline .form-group .form-control{
-		width: 69%;
+	nav ul{
+		padding-left: 47em !important;
 	}
-	.content-new .form-inline .form-group .btn-warning{
-		left: 40.1em;
-		width: 8%;
+	nav ul .dropdown-menu{
+		width: 21%;
+		top: 3em;
+		left: 65em;
 	}
-}
-@media(min-width: 992px){
-	.navbar-expand-lg .navbar-collapse{
-		padding-left: 24em;
-		margin-top: -113px;
-	}
-}
-@media(min-width: 1024px){
-	.navbar-expand-lg .navbar-brand{
+	.paralax .link{
 		width: 18%;
+		margin-left: 28.5em;
 	}
-	.navbar-expand-lg > .navbar-collapse{
-		padding-left: 24em;
-		margin-top: -132px;
-		padding-top: 2em;
+	.contact .contact-left .contact-bottom{
+		padding-top: .6em;
 	}
-	.navbar-expand-lg> .navbar-collapse > .navbar-nav> .nav-item > .btn-group > .dropdown-menu{
-		left: -13em !important;
-	}
-	.content-new .form-inline .form-group label{
-		margin-left: 0;
-	}
-	.content-new .form-inline .form-group .form-control{
-		width: 47%;
-	}
-	.content-new .form-inline .form-group .btn-warning{
-		width: 5%;
-		margin-top: 0;
-		left: 56.5em;
-	}
-	.content-new{
-		padding-top: 3em;
-		padding-bottom: 2em;
-	}
-	.curso-content-bottom .card .carousel-caption{
-		height: 3em;
-	}
-	.curso-content-bottom .card .card-body .top{
-		margin-top: 49px;
-	}
-	.curso-content-bottom .card .card-body ul{
-		padding: 0;
-		font-size: 12.5px;
-		display: -webkit-inline-box;
-		display: -moz-inline-box;
-		display: -o-inline-box;
-		display: -ms-inline-box;
-	}
-	.curso-content-bottom .card .card-body .btn-info, .curso-content-bottom .card .card-body .btn-danger, .curso-content-bottom .card .card-body .btn-warning{
-		width: 49%;
-	}
-}
-@media(min-width: 1050px){
-	.navbar-expand-lg .navbar-collapse{
-		padding-left: 26em;
-	}
-}
-@media(min-width: 1080px){
-	.navbar-expand-lg .navbar-collapse{
-		padding-left: 28em;
-	}
-}
-@media(min-width: 1280px){
-	.navbar-expand-lg .navbar-brand{
-		width: 20%;
-		padding-left: 3em;
-	}
-	.navbar-expand-lg > .navbar-collapse{
-		padding-left: 24em;
-		padding-top: 3em;
-		margin-top: -164px;
-	}
-	.navbar-expand-lg .navbar-collapse .navbar-nav{
-		padding-top: 1em;
-		padding-left: 18em;
-	}
-	.content-new .form-inline .form-group .form-control{
-		width: 56%;
-	}
-	.content-new .form-inline .form-group .btn-warning{
-		left: 70.1em;
-	}
-}
-@media(min-width: 1366px){
 
+}
+@media(min-width: 1440){
+	nav ul{
+		padding-left: 51em !important;
+	}
+	.contact .contact-left .contact-bottom{
+		padding-top: .7em;
+	}
+}
+@media(min-width: 1150px);{
+	nav ul{
+		padding-left: 40em;
+	}
 }

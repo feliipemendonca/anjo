@@ -211,9 +211,8 @@ $idtb_adm = $_SESSION['idtb_login'];
 		</div>
 	</div>
 
-
 	<script src="../js/popper.min.js"></script>
-	<script src="../js/jquery.js"></script>
+	<script src="../js/jquery.min.js"></script>
 	<script src="../js/bootstrap.js"></script>
 
 

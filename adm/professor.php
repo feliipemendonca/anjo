@@ -601,9 +601,8 @@ $pro = $mysqli->query("SELECT *FROM tb_dado_adm WHERE tb_login_idtb_login = '$id
 		</div>
 	</div>
 
-
 	<script src="../js/popper.min.js"></script>
-	<script src="../js/jquery.js"></script>
+	<script src="../js/jquery.min.js"></script>
 	<script src="../js/bootstrap.js"></script>
 	<script class="tmpScript" type="text/javascript" src="../js/valCampos_execute.js" ></script>
 	<script src="../js/jquery.mask.js"></script>

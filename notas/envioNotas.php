@@ -29,6 +29,7 @@
 <?php
 	include "../config/seguranca.php";
     include "../professor/checkSession.php";
+    include "notasTable.php";
 	
 	if(!isset($_SESSION["tokenGenerated"])) sendErro("Não autorizado!", "");
 	
@@ -46,7 +47,7 @@
 	if($nota=="") sendErro("Nota invalida!", $ref);
 	$nota = (float) $nota;
 	if($nota < 0 || $nota > 10) sendErro("Nota invalida!", $ref);
-	if($ref < 0 || $ref > 4) sendErro("Referência da nota invalida!", $ref);
+	if($ref < 0 || $ref > quantMaxNotas) sendErro("Referência da nota invalida!", $ref);
 	
 	include "../config/config.php";
 	

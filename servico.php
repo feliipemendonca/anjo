@@ -15,52 +15,66 @@ include "config/query.php";
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-	<style type="text/css">
-	.card-body .btn-warning{
-		width: 60% !important;
-	}
-</style>
+
 </head>
 <body>
 
-	<main class="container">
-		<header class="blog-header py-3">
-			<div class="row flex-nowrap justify-content-between align-items-center">
-				<div class="col-sm-12 col-md-4 pt-1"></div>
-				<div class="col-sm-12 col-md-4 text-center">
-					<a class="blog-header-logo text-dark" href="#"><img src="img/logo.png" width="215px" alt=""></a>
+	<header>
+		<div class="header">
+			<nav class="navbar navbar-expand-lg navbar-light">
+				<a class="navbar-brand" href="index.php"></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="../">inicio</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="sobre.php">sobre</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="curso/">cursos</a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="servico.php">serviços</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="galeria.php">galeria</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="contato.php">contato</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"" href="contato.php"><i class="fas fa-lock"></i>Login</a>
+							<form action="login.php" method="post" class="dropdown-menu p-4">
+								<div class="form-group">
+									<label for="exampleDropdownFormEmail2">Email<em>*</em></label>
+									<input type="email" class="form-control" name="email" id="exampleDropdownFormEmail2" placeholder="email@example.com" required>
+								</div>
+								<div class="form-group">
+									<label for="exampleDropdownFormPassword2">Senha<em>*</em></label>
+									<input type="password" class="form-control" name="senha" id="exampleDropdownFormPassword2" placeholder="Password">
+								</div>
+								<button type="submit" class="btn btn-danger" name="login" value="login">Entrar</button>
+							</form>
+						</li>
+					</ul>
 				</div>
-				<div class="col-sm-12 col-md-4 d-flex justify-content-end align-items-center">
+			</nav>
+			<div class="container">
+				<div class="counter-up">
+					<h1 class="text-center">Conheça nosso Serviços</h1>
+					<p class="text-center">	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercita</p>
 				</div>
 			</div>
-		</header>
-		<hr>
-		<div class="nav-scroller py-1 mb-2">
-			<ul class="nav d-flex justify-content-between">
-				<a class="p-2 text-muted" href="../">inicio</a>
-				<a class="p-2 text-muted" href="sobre.php">sobre</a>
-				<a class="p-2 text-muted" href="curso/">cursos</a>
-				<a class="p-2 text-muted active" href="servico.php">serviços</a>
-				<a class="p-2 text-muted" href="galeria.php">galeria</a>
-				<a class="p-2 text-muted" href="contato.php">contato</a>
-				<a class="p-2 text-muted" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"" href="contato.php"><i class="fas fa-lock"></i>Login</a>
-				<form action="login.php" method="post" class="dropdown-menu p-4">
-					<div class="form-group">
-						<label for="exampleDropdownFormEmail2">Email<em>*</em></label>
-						<input type="email" class="form-control" name="email" id="exampleDropdownFormEmail2" placeholder="email@example.com">
-					</div>
-					<div class="form-group">
-						<label for="exampleDropdownFormPassword2">Senha<em>*</em></label>
-						<input type="password" class="form-control" name="senha" id="exampleDropdownFormPassword2" placeholder="Password">
-					</div>
-					<button type="submit" name="login" value="login" class="btn btn-danger">Entrar</button>
-				</form>
-			</ul>
 		</div>
-		<hr>
-	</main>
+	</header>
+	<img src="img/logo.png" class="logo" alt="">
 
-	<section class="curso-content-bottom">
+	<section class="service">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 col-md-12">
@@ -95,16 +109,14 @@ include "config/query.php";
 
 					?>
 					<div class="col-sm-12 col-md-6">
-						<div class="card mb-4 box-shadow">
-							<div class="carousel-item">
-								<img class="card-img-top img-fluid" src="../upload/<?php echo $ln['img'] ?>" style=" height: 17em;" alt="cuso anjos da noite: <?php echo $ln['nome']; ?>">
-							</div>
-							<div class="card-body">
-								<p><strong><?php echo $ln['nome']; ?></strong></p>
-								<p class="card-text"><?php echo $ln['descricao'] ;?></p>
-								<br>
-								<button class="btn btn-outline-secondary" data-toggle="modal" data-target="#<?php echo $ln['idtb_servico']; ?>" title="<?php echo $ln['nome']; ?>" style="margin-bottom: 2em;">Entre em contato</button>
-							</div>
+						<div class="card">
+							<img class="card-img-top img-fluid" src="../upload/<?php echo $ln['img'] ?>" style=" height: 17em;" alt="cuso anjos da noite: <?php echo $ln['nome']; ?>">
+						</div>
+						<div class="card-body">
+							<p><strong><?php echo $ln['nome']; ?></strong></p>
+							<p class="card-text"><?php echo $ln['descricao'] ;?></p>
+							<br>
+							<button class="btn btn-outline-secondary" data-toggle="modal" data-target="#<?php echo $ln['idtb_servico']; ?>" title="<?php echo $ln['nome']; ?>">Entre em contato</button>
 						</div>
 					</div>
 					<div class="modal" tabindex="-1" role="dialog" id="<?php echo $ln['idtb_servico']; ?>">
@@ -120,7 +132,7 @@ include "config/query.php";
 									<div class="modal-body">
 										<div class="row">
 											<input type="hidden" name="id" value="<?php echo $ln['nome']; ?>"> 
-											
+
 											<div class="col-sm-12 col-md-12">
 												<label>Empresa<em>*</em></label>
 												<input type="text" class="form-control use-soLetras" name="empresa">

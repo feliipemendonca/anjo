@@ -1,6 +1,7 @@
 <?php
-include "../../config/seguranca.php";
-include "checkSession.php";
+    include "../../config/seguranca.php";
+    include "checkSession.php";
+    include "../../notas/notasTable.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -52,14 +53,11 @@ include "checkSession.php";
 						<table class="table table-bordered table-hover">
 							<thead>
 								<tr>
-									<th>Nota 1</th>
-									<th>Data</th>
-									<th>Nota 2</th>
-									<th>Data</th>
-									<th>Nota 3</th>
-									<th>Data</th>
-									<th>Nota 4</th>
-									<th>Data</th>
+                                    <?php for($a=0; $a < quantMaxNotas; $a+=1){ ?>
+                                        <th>Nota <?php echo $a+1 ?></th>
+                                        <th>Data</th>
+                                    <?php } ?>
+                                    
 									<th>Média</th>
 								</tr>
 							</thead>
@@ -69,7 +67,6 @@ include "checkSession.php";
 								$s = $mysqli->query("SELECT idtb_aluno FROM tb_aluno WHERE tb_login_idtb_login = '$idtb_login'") or die($mysqli->error);
 								$res = $s->fetch_assoc();
 								
-								include "../../notas/notasTable.php";
 								$notas = new notas($res["idtb_aluno"], $turma);
                                 /*
                                     $q = $mysqli->query("SELECT *FROM tb_notas WHERE id_turma_aluno = '$id'") or die($mysqli->error);
@@ -96,15 +93,12 @@ include "checkSession.php";
                                     	else echo "style=\"background-color:#A7FFBD\";";
                                     } ?>
                                     >
-                                    <td><?php echo @$notas->notas[0]; ?></td>
-                                    <td><?php echo @$notas->dts_envio[0]; ?></td>
-                                    <td><?php echo @$notas->notas[1]; ?></td>
-                                    <td><?php echo @$notas->dts_envio[1]; ?></td>
-                                    <td><?php echo @$notas->notas[2]; ?></td>
-                                    <td><?php echo @$notas->dts_envio[2]; ?></td>
-                                    <td><?php echo @$notas->notas[3]; ?></td>
-                                    <td><?php echo @$notas->dts_envio[3]; ?></td>
-                                    <td><?php echo @$notas->mediaAtual; ?></td>
+                                        <?php for($a=0; $a < quantMaxNotas; $a+=1){ ?>
+                                            <td><?php echo @$notas->notas[$a]; ?></td>
+                                            <td><?php echo @$notas->dts_envio[$a]; ?></td>
+                                        <?php } ?>
+                                        
+                                        <td><?php echo @$notas->mediaAtual; ?></td>
                                 </tr>
                             </tbody>
                         </table>

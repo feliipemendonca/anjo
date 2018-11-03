@@ -1,0 +1,17 @@
+RewriteEngine on
+
+RewriteRule virtual\/grupo\/([a-z,A-Z,0-9,^/\s,_-]+)\/([0-9])\/remover\/([a-z,A-Z,0-9,_-]+) biblioteca.php?grupo=$1&grupo_id=$2&remover=$3 [L]
+RewriteRule virtual\/grupo\/([a-z,A-Z,0-9,^/\s,_-]+)\/([0-9])\/voltar biblioteca.php?grupo=$1&grupo_id=$2&voltar= [L]
+RewriteRule virtual\/grupo\/([a-z,A-Z,0-9,^/\s,_-]+)\/([0-9]) biblioteca.php?grupo=$1&grupo_id=$2 [L]
+
+RewriteRule virtual\/arquivo\/([a-z,A-Z,0-9,_-]+)\/remover\/([a-z,A-Z,0-9,_-]+) biblioteca.php?pasta=&token=$1&remover=$2 [L]
+RewriteRule virtual\/arquivo\/([a-z,A-Z,0-9,_-]+)\/download biblioteca.php?pasta=&token=$1&download= [L]
+RewriteRule virtual\/arquivo\/([a-z,A-Z,0-9,_-]+)\/voltar biblioteca.php?pasta=&token=$1&voltar= [L]
+RewriteRule virtual\/arquivo\/([a-z,A-Z,0-9,_-]+) biblioteca.php?pasta=&token=$1 [L]
+
+RewriteRule virtual\/arquivo\/([a-z,A-Z,0-9,_-]+)\/([a-z,A-Z,0-9,_-]+)\/remover\/([a-z,A-Z,0-9,_-]+) biblioteca.php?pasta=$1&token=$2&remover=$3 [L]
+RewriteRule virtual\/arquivo\/([a-z,A-Z,0-9,_-]+)\/([a-z,A-Z,0-9,_-]+)\/download biblioteca.php?pasta=$1&token=$2&download= [L]
+RewriteRule virtual\/arquivo\/([a-z,A-Z,0-9,_-]+)\/([a-z,A-Z,0-9,_-]+)\/voltar biblioteca.php?pasta=$1&token=$2&voltar= [L]
+RewriteRule virtual\/arquivo\/([a-z,A-Z,0-9,_-]+)\/([a-z,A-Z,0-9,_-]+) biblioteca.php?pasta=$1&token=$2 [L]
+
+RewriteRule virtual biblioteca.php [L]

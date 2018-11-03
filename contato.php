@@ -117,8 +117,10 @@ include "config/config.php";
 	</section>
 
 	<footer>
-		<div class="container">
-			<p class="text-right">©2018 Anjos da Noite. Todos os Direitos Resevados | Designer Faciliit</p>
+		<div class="top">
+			<div class="container">
+				<p class="text-right">©2018 Anjos da Noite. Todos os Direitos Resevados | Designer Faciliit</p>
+			</div>
 		</div>
 	</footer>
 
