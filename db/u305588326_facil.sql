@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: 03-Nov-2018 às 00:55
+-- Host: 127.0.0.1:3306
+-- Generation Time: 23-Dez-2018 às 13:16
 -- Versão do servidor: 10.2.17-MariaDB
--- PHP Version: 7.1.22
+-- versão do PHP: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -560,7 +560,7 @@ CREATE TABLE `tb_transacao` (
 --
 
 INSERT INTO `tb_transacao` (`idtb_transacao`, `codigo`, `status`, `idtb_aluno`, `data`) VALUES
-(1, NULL, '1', 1, '2018201820182018-AugAug-SatSatUTC0202:0808:01'),
+(1, NULL, '2', 1, '2018201820182018-AugAug-SatSatUTC0202:0808:01'),
 (2, NULL, '1', 3, '2018201820182018-AugAug-SatSatUTC0303:0808:30');
 
 -- --------------------------------------------------------
@@ -615,8 +615,8 @@ CREATE TABLE `tb_turma_aluno` (
 
 INSERT INTO `tb_turma_aluno` (`idtb_turma_aluno`, `tb_aluno_idtb_aluno`, `tb_turma_idtb_turma`, `tb_curso_idtb_curso`, `tb_pagamento_idtb_pagamento`) VALUES
 (1, 1, 1, 1, 1),
-(2, 2, 1, 1, 1),
-(3, 3, 1, 1, 1);
+(2, 2, 1, 1, 3),
+(3, 3, 1, 1, 3);
 
 --
 -- Indexes for dumped tables
